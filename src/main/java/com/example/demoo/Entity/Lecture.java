@@ -28,7 +28,7 @@ public class Lecture {
 	public void setExperince(int experince) {
 		this.experince = experince;
 	}
-	
+		
 	
 	
 }

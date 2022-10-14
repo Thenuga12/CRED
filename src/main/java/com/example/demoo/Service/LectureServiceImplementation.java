@@ -47,6 +47,15 @@ public class LectureServiceImplementation implements LectureService{
 		lecturerepo.save(lecture);
 		
 	}
+
+	@Override
+	public void updateLectureByName(Lecture lecture) {
+		Lecture oldlectData = new Lecture();
+		oldlectData = lecturerepo.findByLectureId(lecture.getLectureId());
+		lecture.setExperince(oldlectData.getExperince());
+		
+		lecturerepo.save(lecture);
+	}
 	
 	
 

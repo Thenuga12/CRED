@@ -22,6 +22,8 @@ public interface LectureService {
 
 	void updateLectureById(Lecture lecture);
 
+	void updateLectureByName(Lecture lecture);
+
 	
 
 }

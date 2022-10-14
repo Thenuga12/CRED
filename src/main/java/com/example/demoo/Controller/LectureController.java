@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demoo.Dto.LectureDto;
+import com.example.demoo.Dto.NewLectureDto;
 import com.example.demoo.Entity.Lecture;
 import com.example.demoo.Service.LectureService;
 
@@ -75,5 +76,17 @@ public class LectureController {
 		return new ResponseEntity<Object>("Update Successfully",HttpStatus.OK);
 		
 	}
-
+	@PutMapping("/updatebyNamelecture")
+	public ResponseEntity<Object> updateLectureByName(@RequestBody NewLectureDto newlecturedto)
+	{
+		if(!lectureservice.isLectureId(newlecturedto.getLectureId()))
+		{
+			return new ResponseEntity<Object>("Enter Correct Id",HttpStatus.BAD_REQUEST);
+		}
+		Lecture lecture=new Lecture();
+		BeanUtils.copyProperties(newlecturedto, lecture);
+		lectureservice.updateLectureByName(lecture);
+		return new ResponseEntity<Object>("Update Successfully",HttpStatus.OK);
+		
+	}
 }
