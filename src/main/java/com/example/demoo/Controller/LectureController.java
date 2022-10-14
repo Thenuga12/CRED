@@ -62,7 +62,7 @@ public class LectureController {
 		
 	}
 	
-	@PutMapping("/update")
+	@PutMapping("/updatelecture")
 	public ResponseEntity<Object> updateLecture(@RequestBody LectureDto lecturedto)
 	{
 		if(!lectureservice.isLectureId(lecturedto.getLectureId()))
