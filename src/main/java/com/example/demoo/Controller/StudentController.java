@@ -23,63 +23,62 @@ import com.example.demoo.Util.Constant;
 
 @RestController
 public class StudentController {
-	@Autowired
-	private StudentService studentservice;
+  @Autowired
+  private StudentService studentservice;
 
-	@PostMapping("/student")
-	public ResponseEntity<Object> addStudent(@RequestBody StudentDto studto) {
-		Student stu = new Student();
-		BeanUtils.copyProperties(studto, stu);
-		studentservice.saveStudent(stu);
-		return new ResponseEntity<>(Constant.ADD_STUDENT_SUCCESS, HttpStatus.OK);
+  @PostMapping("/student")
+  public ResponseEntity<Object> addStudent(@RequestBody StudentDto studto) {
+    Student stu = new Student();
+    BeanUtils.copyProperties(studto, stu);
+    studentservice.saveStudent(stu);
+    return new ResponseEntity<>(Constant.ADD_STUDENT_SUCCESS, HttpStatus.OK);
 
-	}
+  }
 
-	@GetMapping("/getallstudent")
-	public ResponseEntity<Object> getAllStudent() {
-		List<Student> stude = new ArrayList<Student>();
-		stude = studentservice.getAllStudents();
-		return new ResponseEntity<Object>(stude, HttpStatus.OK);
+  @GetMapping("/getallstudent")
+  public ResponseEntity<Object> getAllStudent() {
+    List<Student> stude = new ArrayList<Student>();
+    stude = studentservice.getAllStudents();
+    return new ResponseEntity<Object>(stude, HttpStatus.OK);
 
-	}
+  }
 
-	@GetMapping("/getById/{id}")
-	public ResponseEntity<Object> getById(@PathVariable String id) {
-		return new ResponseEntity<Object>(studentservice.getById(id), HttpStatus.OK);
+  @GetMapping("/getById/{id}")
+  public ResponseEntity<Object> getById(@PathVariable String id) {
+    return new ResponseEntity<Object>(studentservice.getById(id), HttpStatus.OK);
 
-	}
+  }
 
-	@DeleteMapping("/deletestu/{id}")
-	public ResponseEntity<Object> deleteById(@PathVariable String id) {
-		studentservice.deletestudentById(id);
-		return new ResponseEntity<>("Deleted Success", HttpStatus.OK);
+  @DeleteMapping("/deletestu/{id}")
+  public ResponseEntity<Object> deleteById(@PathVariable String id) {
+    studentservice.deletestudentById(id);
+    return new ResponseEntity<>("Deleted Success", HttpStatus.OK);
 
-	}
+  }
 
-	@PutMapping("/update")
-	public ResponseEntity<Object> updatStudent(@RequestBody StudentDto studto) {
-		if (!studentservice.isStudentId(studto.getStuId())) {
-			return new ResponseEntity<>(Constant.STUDENT, HttpStatus.BAD_REQUEST);
-		}
-		Student student = new Student();
-		BeanUtils.copyProperties(studto, student);
-		studentservice.updateStudentById(student);
-		return new ResponseEntity<Object>(Constant.UPDATE_STUDENT_SUCCESS, HttpStatus.OK);
+  @PutMapping("/update")
+  public ResponseEntity<Object> updatStudent(@RequestBody StudentDto studto) {
+    if (!studentservice.isStudentId(studto.getStuId())) {
+      return new ResponseEntity<>(Constant.STUDENT, HttpStatus.BAD_REQUEST);
+    }
+    Student student = new Student();
+    BeanUtils.copyProperties(studto, student);
+    studentservice.updateStudentById(student);
+    return new ResponseEntity<Object>(Constant.UPDATE_STUDENT_SUCCESS, HttpStatus.OK);
 
-	}
-	
-	@PutMapping("/updatebyname")
-	public ResponseEntity<Object> updateStudentByName(@RequestBody NewStudentDto newstudentdto)
-	{
-		if (!studentservice.isStudentId(newstudentdto.getStuId())) {
-			return new ResponseEntity<>(Constant.STUDENT, HttpStatus.BAD_REQUEST);
-		}
-		Student student = new Student();
-		BeanUtils.copyProperties(newstudentdto, student);		
-		studentservice.updateStudentByName(student);
-		
-		return new ResponseEntity<Object>(Constant.UPDATE_STUDENT_SUCCESS,HttpStatus.OK); 
-		
-	}
-	
+  }
+
+  @PutMapping("/updatebyname")
+  public ResponseEntity<Object> updateStudentByName(@RequestBody NewStudentDto newstudentdto) {
+    if (!studentservice.isStudentId(newstudentdto.getStuId())) {
+      return new ResponseEntity<>(Constant.STUDENT, HttpStatus.BAD_REQUEST);
+    }
+    Student student = new Student();
+    BeanUtils.copyProperties(newstudentdto, student);
+    studentservice.updateStudentByName(student);
+
+    return new ResponseEntity<Object>(Constant.UPDATE_STUDENT_SUCCESS, HttpStatus.OK);
+
+  }
+
 }

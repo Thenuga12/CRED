@@ -5,21 +5,21 @@ import com.example.demoo.Entity.Student;
 
 public interface StudentService {
 
-	public void saveStudent(Student stu);
+  public void saveStudent(Student stu);
 
-	public List<Student> getAllStudents();
+  public List<Student> getAllStudents();
 
-	public Student getById(String id);
+  public Student getById(String id);
 
-	public void deletestudentById(String id);
+  public void deletestudentById(String id);
 
-	public void updateStudentById(Student student);
+  public void updateStudentById(Student student);
 
-	public boolean isStudentId(String stuId);
+  public boolean isStudentId(String stuId);
 
-	public boolean isStudentName(String stuId);
+  public boolean isStudentName(String stuId);
 
-	public void updateStudentByName(Student student);
+  public void updateStudentByName(Student student);
 }
-	
+
 
