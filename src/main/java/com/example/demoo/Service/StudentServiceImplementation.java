@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demoo.Entity.Student;
-import com.example.demoo.Repo.StudentRepo;
+import com.example.demoo.Repository.StudentRepository;
 
 @Service
 public class StudentServiceImplementation implements StudentService {
 	@Autowired
-	private StudentRepo sturepo;
+	private StudentRepository sturepo;
 
 	public void saveStudent(Student student) {
 		sturepo.save(student);

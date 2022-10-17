@@ -9,21 +9,18 @@ import com.example.demoo.Entity.Lecture;
 @Service
 public interface LectureService {
 
-	void saveLecture(Lecture lecture);
+  void saveLecture(Lecture lecture);
 
-	List<Lecture> getAllLecture();
+  List<Lecture> getAllLecture();
 
-	public Lecture getById(Long id);
+  public Lecture getById(Long id);
 
-	void deletLecture(Long id);
+  void deletLecture(Long id);
 
-	boolean isLectureId(Long lectureId);
-	
+  boolean isLectureId(Long lectureId);
 
-	void updateLectureById(Lecture lecture);
+  void updateLectureById(Lecture lecture);
 
-	void updateLectureByName(Lecture lecture);
-
-	
+  void updateLectureByName(Lecture lecture);
 
 }
